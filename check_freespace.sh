@@ -4,7 +4,6 @@ DF="/bin/df"
 CUT="/usr/bin/cut"
 WC="/usr/bin/wc"
 
-PROGNAME=`/bin/basename $0`
 
 
 # Exit codes
@@ -109,7 +108,7 @@ done
 ##### Get size of specified directory
 
 error=""
-duresult=`$DF -h $dirpath | /bin/awk '{ print $4; }' | /bin/sed 's/%//g'` 2>&1 || error="Errore"
+duresult=`$DF -h $dirpath | /bin/awk '{ print $4; }' | /bin/sed 's/%//g'` 2>&1 || error="Error"
 
 if [ ! "$error" = "" ]; then
     errtext=`echo $duresult`
